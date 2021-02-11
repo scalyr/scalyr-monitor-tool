@@ -11,13 +11,13 @@ This will build the testing environment in python to test monitors.
 2. Declare you agent plugin or test one in the `/monitors` folder (omit the .py extension)
 
 ```
-EXPORT plugin=test_monitor
+export plugin=test_monitor
 ```
 
 3. Declare your parameters as a string
 
 ```
-Export params="{ gauss_mean: 0.5 }"
+export params="{ gauss_mean: 0.5 }"
 ```
 
 4. Build docker container and pass args
