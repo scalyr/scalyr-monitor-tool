@@ -5,7 +5,7 @@ This will build the testing environment in python to test monitors.
 
 ***To Test Plugin***
 1. Clone URL 
-``git clone URL``
+``git clone https://github.com/scalyr/scalyr-monitor-tester.git``
 2. Declare you agent plugin or test one in the `/monitors' folder (omit the .py extension)
 ```EXPORT plugin=test_monitor```
 3. Declare your parameters as a string
