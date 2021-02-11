@@ -1,4 +1,4 @@
-*Get Started*
+***Get Started***
 
 This will build the testing environment in python to test monitors. 
 
