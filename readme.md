@@ -36,6 +36,8 @@ You should see the output of the plugin stream to stdout
 2021-02-11 04:26:23.677Z [ip_monitor()] response "{\n  \"ip_addr\": \"24.23.157.7\",\n  \"remote_host\": \"unavailable\",\n  \"user_agent\": \"scalyr-agent-2.1.18;monitor=ip_monitor\",\n  \"port\": 22644,\n  \"method\": \"GET\",\n  \"encoding\": \"identity\",\n  \"via\": \"1.1 google\",\n  \"forwarded\": \"24.23.157.7, 216.239.32.21\"\n}" length=250 request_method="GET" server="https://ifconfig.me/all.json" status=200
 ```
 
+Edit and test your plugin here is a [detailed breakdown of the classes and architecture](https://app.scalyr.com/help/creating-a-monitor-plugin#defining-plugin). 
+
 ***To add to live environment***
 
 1. [Install Scalyr Agent](https://app.scalyr.com/help/install-agent-linux-quick-start-2)
