@@ -5,7 +5,7 @@ This will build the testing environment in python to test monitors.
 
 ***To Test Plugin***
 1. Clone URL 
-``git clone https://github.com/scalyr/scalyr-monitor-tester.git``
+``git clone https://github.com/scalyr/scalyr-monitor-tester.git && cd scalyr-monitor-tester``
 
 
 2. Declare you agent plugin or test one in the `/monitors` folder (omit the .py extension)
