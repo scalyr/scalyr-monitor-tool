@@ -1,4 +1,4 @@
-ARG version=3.6
+ARG version=3.7 #Only supports python 3
 FROM python:${version}-slim-buster
 ARG testFile
 ARG CONFIG_VALUES
