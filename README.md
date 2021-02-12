@@ -60,3 +60,25 @@ docker run -v $(pwd)/monitors:/monitors scalyr-monitor-dev python -m scalyr_agen
    }]
 }
 ```
+
+## Testing a Parser
+
+When logs eventually get to scalyr, they need to be parsed. You can test this in your account with the ingestion pipeline easily by adding the Docker Agent:
+
+1. Pull Scalyr Agent
+docker pull scalyr/scalyr-agent-docker-json
+
+2. Run Scalyr Agent
+```bash docker run -d --name scalyr-docker-agent \
+-e SCALYR_API_KEY=<Your API key> \
+-v /var/run/docker.sock:/var/scalyr/docker.sock \
+-v /var/lib/docker/containers:/var/lib/docker/containers \
+scalyr/scalyr-agent-docker-json```
+
+3. Run your monitor (note we add a label for parser name if you omit the default will be docker) 
+
+```bash
+docker run -l com.scalyr.config.log.attributes.parser=docker -v $(pwd)/monitors:/monitors scalyr-monitor-dev python -m scalyr_agent.run_monitor monitors.your_monitor_name_monitor -c '{"gauss_mean": 0.5}'
+```
+3. [View Output](https://app.scalyr.com/events?filter=parser%3D%27docker%27) 
+
