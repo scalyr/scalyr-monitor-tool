@@ -65,20 +65,33 @@ docker run -v $(pwd)/monitors:/monitors scalyr-monitor-dev python -m scalyr_agen
 
 When logs eventually get to scalyr, they need to be parsed. You can test this in your account with the ingestion pipeline easily by adding the Docker Agent:
 
-1. Pull Scalyr Agent
-docker pull scalyr/scalyr-agent-docker-json
+##### 1. Build the Docker image with Scalyr Agent and Other Dependencies
 
-2. Run Scalyr Agent
-```bash docker run -d --name scalyr-docker-agent \
+```bash
+docker pull scalyr/scalyr-agent-docker-json
+```
+
+##### 2. Build the Docker image with Scalyr Agent and Other Dependencies
+
+
+```bash 
+docker run -d --name scalyr-docker-agent \
 -e SCALYR_API_KEY=<Your API key> \
 -v /var/run/docker.sock:/var/scalyr/docker.sock \
 -v /var/lib/docker/containers:/var/lib/docker/containers \
-scalyr/scalyr-agent-docker-json```
+scalyr/scalyr-agent-docker-json
+```
 
-3. Run your monitor (note we add a label for parser name if you omit the default will be docker) 
+##### 3. Build parser
+Edit the parser. By default it is the [docker parser](https://app.scalyr.com/parser?parser=docker). View a full list [here](https://app.scalyr.com/parsers)
+
+
+##### 4. Run Monitor
+Add a label to change the parser to something other than `docker`
 
 ```bash
 docker run -l com.scalyr.config.log.attributes.parser=docker -v $(pwd)/monitors:/monitors scalyr-monitor-dev python -m scalyr_agent.run_monitor monitors.your_monitor_name_monitor -c '{"gauss_mean": 0.5}'
 ```
-3. [View Output](https://app.scalyr.com/events?filter=parser%3D%27docker%27) 
+##### 5. See logs in Scalyr
+5. [View Output](https://app.scalyr.com/events?filter=parser%3D%27docker%27) 
 
