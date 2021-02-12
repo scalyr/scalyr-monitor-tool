@@ -93,5 +93,5 @@ Add a label to change the parser to something other than `docker`
 docker run -l com.scalyr.config.log.attributes.parser=docker -v $(pwd)/monitors:/monitors scalyr-monitor-dev python -m scalyr_agent.run_monitor monitors.your_monitor_name_monitor -c '{"gauss_mean": 0.5}'
 ```
 ##### 5. See logs in Scalyr
-5. [View Output](https://app.scalyr.com/events?filter=parser%3D%27docker%27) 
+You can see the logs by searching `serverHost = "container_id" && logfile contains "container_name"` or searching [by the parser](https://app.scalyr.com/events?filter=parser%3D%27docker%27) 
 
