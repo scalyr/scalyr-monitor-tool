@@ -63,7 +63,7 @@ docker run -v $(pwd)/monitors:/monitors scalyr-monitor-dev python -m scalyr_agen
 
 ## Testing a Parser
 
-When logs eventually get to scalyr, they need to be parsed. You can test this in your account with the ingestion pipeline easily by adding the Docker Agent:
+When logs eventually get to scalyr, they need to be parsed. You can test this in your account with the entire ingestion pipeline to test parsers, scrubbing, and discard rules easily by adding the Docker Agent:
 
 1. Pull Scalyr Agent
 docker pull scalyr/scalyr-agent-docker-json
