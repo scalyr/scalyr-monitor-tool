@@ -18,7 +18,7 @@ Make changes to your monitor code in ``./monitors/your_monitor_name_monitor.py``
 you want to test them, run the command below.
 
 ```bash
-docker run -v $(pwd)/monitors:/monitors scalyr-monitor-dev python -m scalyr_agent.run_monitor monitors.your_monitor_name_monitor -c '{"gauss_mean": 0.5}'
+docker run -v $(pwd)/monitors:/monitors scalyr-monitor-dev python -m scalyr_agent.run_monitor monitors.{your_monitor} -c '{"gauss_mean": 0.5}'
 ```
 
 NOTE: It's important you use ``-v`` flag. This way local ``./monitors`` directory will be
