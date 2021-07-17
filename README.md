@@ -1,5 +1,4 @@
-# Scalyr Monitors Development and Test Setup
-
+# Quickly develop scalyr monitor addons
 This repository contains information on how to build a Docker image and container which can be
 used to develop Scalyr Monitors.
 
