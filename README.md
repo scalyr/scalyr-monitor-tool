@@ -14,11 +14,15 @@ docker build . -t scalyr-monitor-dev
 
 ### 2. Run the container to develop and test your monitor
 
-Make changes to your monitor code in ``./monitors/your_monitor_name_monitor.py`` file and once
+Make changes to your monitor code in ``./monitors/test_monitor.py`` file and once
 you want to test them, run the command below.
 
 ```bash
-docker run -v $(pwd)/monitors:/monitors scalyr-monitor-dev python -m scalyr_agent.run_monitor monitors.{your_monitor} -c '{"gauss_mean": 0.5}'
+export your_monitor=test_monitor
+```
+
+```bash
+docker run -v $(pwd)/monitors:/monitors scalyr-monitor-dev python -m scalyr_agent.run_monitor monitors.${your_monitor} -c '{"gauss_mean": 0.5}'
 ```
 
 NOTE: It's important you use ``-v`` flag. This way local ``./monitors`` directory will be
