@@ -13,7 +13,7 @@ RUN git clone https://github.com/scalyr/scalyr-agent-2.git
 RUN cd scalyr-agent-2 ; git checkout ${AGENT_VERSION}
 
 # Create virtualenv Install Python deps
-RUN python3 -m venv /opt/venv && . /opt/venv/bin/activate && cd scalyr-agent-2 && pip3 install -r dev-requirements.txt
+RUN python3 -m venv /opt/venv && . /opt/venv/bin/activate && cd scalyr-agent-2 && pip3 install -r dev-requirements-new.txt
 
 # Install agent into venv
 # Workaround since pysnmp is not compatible with Python 3.7
